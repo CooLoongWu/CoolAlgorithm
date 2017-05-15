@@ -1,13 +1,15 @@
+package com.cooloongwu.prime;
+
 /**
- * 求素数算法
+ * 求某区域内素数个数的算法（也可以打印素数）
  * Created by Dragon on 2017-5-11.
  */
-class Prime {
+public class Prime {
     private long startNum;
     private long endNum;
     private boolean isContain2 = false;
 
-    Prime(long startNum, long endNum) {
+    public Prime(long startNum, long endNum) {
         this.startNum = startNum;
         this.endNum = endNum;
 
@@ -69,15 +71,15 @@ class Prime {
             }
             if (isPrime) {
                 primeNum++;
-                printPrime(i);
+                printPrime(i);      //打印素数的实现方法，可以自己去实现
             }
         }
 
         long endTime = System.currentTimeMillis();
-        printResult(primeNum, endTime - startTime);
+        printResult(primeNum, endTime - startTime); //打印某区间素数个数，以及所消耗的时间，可以自己去实现
     }
 
-    //2、试除法：N 如果有（除了自身以外的）质因数，那肯定会小于等于 N/2，若均无法整除，N则为素数。
+    //2、试除法：N 如果有（除了自身以外的）质因数，那么其中一个肯定会小于等于 N/2，若均无法整除，N则为素数。
     private void doIt2() {
         long startTime = System.currentTimeMillis();
         long primeNum = 0;
