@@ -2,7 +2,7 @@ package com.cooloongwu;
 
 
 import com.cooloongwu.prime.Prime;
-import com.cooloongwu.prime.Prime23333;
+import com.cooloongwu.prime.Prime233;
 
 /**
  * 入口程序
@@ -11,8 +11,8 @@ import com.cooloongwu.prime.Prime23333;
 public class Main {
 
     public static void main(String[] args) {
-        new Prime(1, 100000);
+//        new Prime(1, 100000);
 
-//        new Prime23333();
+        new Prime233();
     }
 }

@@ -11,9 +11,9 @@ import java.math.BigInteger;
  * <p>
  * Created by Dragon on 2017-5-15.
  */
-public class Prime23333 {
+public class Prime233 {
 
-    public Prime23333() {
+    public Prime233() {
 
         long num = 2;
         isPrime(num);
