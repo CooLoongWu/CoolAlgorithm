@@ -4,12 +4,12 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 /**
- * 2017 年 4 月美团 Android 面试题：求猫扑素数
+ * 2017 年 4 月美团 Android 面试题：求猫扑素数；1到n，求1的个数；
  * <p>
  * 形如以 2 开头, 之后跟任意多个 3 的十进制整数如果是个素数, 则它是猫扑素数.
  * 如 2, 23, 233, 2333, 23333 都是猫扑素数, 而 233333 则不是, 它可以分解为 353 x 661.
  * <p>
- * Created by Dragon on 2017-5-15.
+ * Created by CooLoongWu on 2017-5-15.
  */
 public class Prime233 {
 
@@ -46,4 +46,5 @@ public class Prime233 {
     private void printNotPrime(long primeNum, long i, long time) {
         System.out.println(primeNum + "不是素数，因子为：" + i + "，耗时(毫秒)：" + time);
     }
+
 }

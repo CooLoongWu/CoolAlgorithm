@@ -2,7 +2,7 @@ package com.cooloongwu.prime;
 
 /**
  * 求某区域内素数个数的算法（也可以打印素数）
- * Created by Dragon on 2017-5-11.
+ * Created by CooLoongWu on 2017-5-11.
  */
 public class Prime {
     private long startNum;
