@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>冒泡排序演示</title>
+
+    <script src="../libs/echarts.common.min.js"></script>
+</head>
+<body>
+
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width: 100%;height:100%;position:absolute"></div>
+
+<script type="text/javascript">
+
+// 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+    <!--app.title = '气泡图';-->
+
+    var originalArray = new Array(
+            [0,5,'dada','原始数据'],
+            [1,9,'dada','原始数据'],
+            [2,1,'dada','原始数据'],
+            [3,7,'dada','原始数据'],
+            [4,2,'dada','原始数据'],
+            [5,0,'dada','原始数据'],
+            [6,4,'dada','原始数据'],
+            [7,3,'dada','原始数据'],
+            [8,8,'dada','原始数据'],
+            [9,6,'dada','原始数据']
+        );
+
+    var changedArray = new Array(
+            [0,5,'dada','排序数据'],
+            [1,9,'dada','排序数据'],
+            [2,1,'dada','排序数据'],
+            [3,7,'dada','排序数据'],
+            [4,2,'dada','排序数据'],
+            [5,0,'dada','排序数据'],
+            [6,4,'dada','排序数据'],
+            [7,3,'dada','排序数据'],
+            [8,8,'dada','排序数据'],
+            [9,6,'dada','排序数据']
+        );
+var data = [originalArray,changedArray];
+
+option = {
+    title: {
+        text: '冒泡排序演示'
+    },
+    legend: {
+        right: 10,
+        data: ['原始数据', '排序数据']
+    },
+    xAxis: {
+        splitLine: {
+            lineStyle: {
+                type: 'dashed'
+            }
+        }
+    },
+    yAxis: {
+        splitLine: {
+            lineStyle: {
+                type: 'dashed'
+            }
+        },
+        scale: true
+    },
+    series: [{
+        name: '原始数据',
+        data: data[0],
+        type: 'scatter',
+        symbolSize: function (data) {
+            return 15;
+        },
+        label: {
+            emphasis: {
+                show: true,
+                formatter: function (param) {
+                    return param.data[3];
+                },
+                position: 'top'
+            }
+        },
+        itemStyle: {
+            normal: {
+                shadowBlur: 10,
+                shadowColor: 'rgba(120, 36, 50, 0.5)',
+                shadowOffsetY: 5,
+                color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
+                    offset: 0,
+                    color: 'rgb(251, 118, 123)'
+                }, {
+                    offset: 1,
+                    color: 'rgb(204, 46, 72)'
+                }])
+            }
+        }
+    }, {
+        name: '排序数据',
+        data: data[1],
+        type: 'scatter',
+        symbolSize: function (data) {
+            return 20;
+        },
+        label: {
+            emphasis: {
+                show: true,
+                formatter: function (param) {
+                    return param.data[3];
+                },
+                position: 'top'
+            }
+        },
+        itemStyle: {
+            normal: {
+                shadowBlur: 10,
+                shadowColor: 'rgba(25, 100, 150, 0.5)',
+                shadowOffsetY: 5,
+                color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
+                    offset: 0,
+                    color: 'rgb(129, 227, 238)'
+                }, {
+                    offset: 1,
+                    color: 'rgb(25, 183, 207)'
+                }])
+            }
+        }
+    }]
+};
+// 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+        for (var i = 0; i < changedArray.length - 1; i++) {
+            doSetTimeout(i);
+        }
+
+        function doSetTimeout(i) {
+            setTimeout(function() {
+                for (var j = 0; j < changedArray.length - 1 - i; j++) {
+                    if (changedArray[j][1] > changedArray[j + 1][1]) {
+                        var temp = changedArray[j];
+                        changedArray[j] = changedArray[j + 1];
+                        changedArray[j + 1] = temp;
+                    }
+
+                    doSetTimeout1(j);
+                }
+            }, i*1000);
+        }
+
+        function doSetTimeout1(j) {
+            setTimeout(function() {
+                for (var x = 0; x < changedArray.length; x++) {
+                    changedArray[x][0] = x;
+                }
+
+                var data = [originalArray,changedArray]
+                myChart.setOption(option);
+            }, j*1000);
+        }
+
+
+</script>
+</body>
+</html>
