@@ -6,3 +6,6 @@
 
 ## 翻转类：
 - [单词翻转](./src/com/cooloongwu/reverse/WordReverse.md)
+
+## 排序类：
+- [冒泡排序](./src/com/cooloongwu/sort/BubbleSort.md)
