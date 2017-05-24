@@ -5,6 +5,7 @@ import com.cooloongwu.prime.Prime;
 import com.cooloongwu.prime.Prime233;
 import com.cooloongwu.reverse.WordReverse;
 import com.cooloongwu.sort.BubbleSort;
+import com.cooloongwu.sort.SimpleSelectionSort;
 
 /**
  * 入口程序
@@ -16,6 +17,7 @@ public class Main {
 //        new Prime(1, 100000);
 //        new Prime233();
 //        WordReverse.reverse("This is just a test");
-        BubbleSort.sort(new int[]{2, 3, 4, 6, 1, 2});
+//        BubbleSort.sort(new int[]{2, 3, 4, 6, 1, 2});
+        SimpleSelectionSort.sort(new int[]{2, 3, 4, 6, 1, 2});
     }
 }
