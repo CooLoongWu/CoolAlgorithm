@@ -9,3 +9,4 @@
 
 ## 排序类：
 - [冒泡排序](./src/com/cooloongwu/sort/BubbleSort.md)
+- [简单快速排序](./src/com/cooloongwu/sort/SimpleSelectionSort.md)

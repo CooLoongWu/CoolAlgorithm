@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>冒泡排序演示</title>
+    <title>简单快速排序演示</title>
 
-    <script src="../libs/echarts.common.min.js"></script>
+    <script src="./js/echarts.common.min.js"></script>
 </head>
 <body>
 
@@ -128,33 +128,42 @@
     myChart.setOption(option);
 
     var x = 1;
-    for (var i = 0; i < changedArray.length - 1; i++) {
-        for (var j = 0; j < changedArray.length - 1 - i; j++) {
-            (function (j) {
-                setTimeout(function () {
-
-                    if (changedArray[j][1] > changedArray[j + 1][1]) {
-                        var temp = changedArray[j];
-                        changedArray[j] = changedArray[j + 1];
-                        changedArray[j + 1] = temp;
-                    }
-
-                    display();
-
-                }, x * 1000);
-            })(j);
-            x++;
+    for (var i = 0; i < changedArray.length; i++) {
+        console.log("第" + (i + 1) + "次循环");
+//        (function (i) {
+//            setTimeout(function () {
+        for (var j = i + 1; j < changedArray.length; j++) {
+            var minIndex = i;
+            if (changedArray[j][1] < changedArray[minIndex][1]) {
+                minIndex = j;
+            }
         }
+
+        if (minIndex !== i) {
+            var temp = changedArray[i];
+            changedArray[i] = changedArray[minIndex];
+            changedArray[minIndex] = temp;
+        }
+
+        display();
+//            }, x * 1000);
+//        })(i);
+//        x++;
     }
 
     function display() {
+//        for (var x = 0; x < changedArray.length; x++) {
+//            changedArray[x][0] = x;
+//        }
+
         for (var x = 0; x < changedArray.length; x++) {
-            changedArray[x][0] = x;
+            console.log(changedArray[x][1]);
         }
 
         data = [originalArray, changedArray];
         myChart.setOption(option);
     }
+
 
 </script>
 </body>
